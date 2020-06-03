@@ -27,9 +27,10 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *      Counter 1 is a global variable that is assigned that value of the counterMaker() function.
+ *      Counter 2 is  a function.  
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *      Counter 1 has a closure.  It returns the counter() function.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
@@ -56,11 +57,12 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+  return(Math.round(Math.random() * (2 - 1) ) + 1);
 
 }
+console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,9 +78,10 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(i,iNum){
 
   /*Code Here*/
+  //will attempt AFTER the module that includes callbacks................
 
 }
 
@@ -105,6 +108,7 @@ Final Score: 6 - 10 */
 
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
+    //will attempt AFTER the module that includes callbacks................
 }
 
 
