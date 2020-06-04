@@ -27,9 +27,10 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *      Counter 1 is a variable that is assigned to the value of the counterMaker() function.
+ *      Counter 2 is a function.  
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *      
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
@@ -56,11 +57,12 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+  return(Math.round(Math.random() * (2 - 1) ) + 1);
 
 }
+console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +78,22 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(cb,numInnings){
+let  fs = [
+  {
+    "Home" : 0
+  },
+  {
+     "Away" :  0
+    } ]
 
-  /*Code Here*/
+fs[0].Home = cb() * numInnings;
+fs[1].Away = cb() * numInnings;
 
-}
+return(fs)
+
+  }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +116,37 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb,numInnings) {
+  let scoreHome = 0;
+  let scoreAway = 0;
+  let score = [];
+  let inningNum = 0;
+  let numSuffix ="null";
+
+
+  	for (let i = 0; i < numInnings; i++){
+	scoreHome += cb(); 
+	scoreAway += cb();
+	inningNum += 1;
+	let numSuffix ="th";
+	
+	if (inningNum ===1){
+			numSuffix= "st"
+		}
+		else if (inningNum ===2){
+			numSuffix= "nd"
+		}
+		else if (inningNum ===3){
+			numSuffix= "rd"
+		}
+		else{
+			numSuffix= "th"
+		}
+	score.push(`${inningNum}${numSuffix} inning: ${scoreHome} - ${scoreAway}`);	
+	}
+
+	
+	console.log(score);
+	console.log(`Final Score: ${scoreHome} - ${scoreAway}`);
 }
-
-
+console.log(scoreboard(inning, 9));
