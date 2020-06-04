@@ -27,10 +27,10 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- *      Counter 1 is a global variable that is assigned that value of the counterMaker() function.
- *      Counter 2 is  a function.  
+ *      Counter 1 is a variable that is assigned to the value of the counterMaker() function.
+ *      Counter 2 is a function.  
  * 2. Which of the two uses a closure? How can you tell?
- *      Counter 1 has a closure.  It returns the counter() function.
+ *      
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
@@ -116,3 +116,37 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
+function scoreboard(cb,numInnings) {
+  let scoreHome = 0;
+  let scoreAway = 0;
+  let score = [];
+  let inningNum = 0;
+  let numSuffix ="null";
+
+
+  	for (let i = 0; i < numInnings; i++){
+	scoreHome += cb(); 
+	scoreAway += cb();
+	inningNum += 1;
+	let numSuffix ="th";
+	
+	if (inningNum ===1){
+			numSuffix= "st"
+		}
+		else if (inningNum ===2){
+			numSuffix= "nd"
+		}
+		else if (inningNum ===3){
+			numSuffix= "rd"
+		}
+		else{
+			numSuffix= "th"
+		}
+	score.push(`${inningNum}${numSuffix} inning: ${scoreHome} - ${scoreAway}`);	
+	}
+
+	
+	console.log(score);
+	console.log(`Final Score: ${scoreHome} - ${scoreAway}`);
+}
+console.log(scoreboard(inning, 9));
