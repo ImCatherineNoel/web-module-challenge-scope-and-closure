@@ -78,12 +78,22 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(i,iNum){
+function finalScore(cb,numInnings){
+let  fs = [
+  {
+    "Home" : 0
+  },
+  {
+     "Away" :  0
+    } ]
 
-  /*Code Here*/
-  //will attempt AFTER the module that includes callbacks................
+fs[0].Home = cb() * numInnings;
+fs[1].Away = cb() * numInnings;
 
-}
+return(fs)
+
+  }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -105,10 +115,4 @@ and returns the score at each pont in the game, like so:
 9th inning: 6 - 10
 
 Final Score: 6 - 10 */
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-    //will attempt AFTER the module that includes callbacks................
-}
-
 
